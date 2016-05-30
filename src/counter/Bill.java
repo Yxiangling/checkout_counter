@@ -4,10 +4,6 @@ import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.Set;
 
-/*
- * Pay.java
- * Description: 用来保存价格和“买二赠一”优惠记录的数据结构
- */
 public class Bill{
 
 	private double payPrice = 0;

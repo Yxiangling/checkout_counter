@@ -10,12 +10,9 @@ public class TestCounter {
 		String testJSON3 = "['ITEM000005-3','ITEM000004-3']";
 
 		Receipt in = new Receipt();
-		// 1.去掉无效字符
-		String input = in.replace(testJSON3);
-		// 2.输入内容分析后使用HashMap存储，等待检测
+		String input = in.replace(testJSON1);
 		in.analyse(input);
-		// 3.计算并打印小票
-		in.printTicket();
+		in.printReceipt();
 	}
 
 }

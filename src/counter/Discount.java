@@ -1,11 +1,8 @@
 package counter;
 
 public class Discount {
-	//商品名称
 	private String name;
-	//商品数量
 	private int number;
-	//商品单位
 	private String unit;
 
 	public void setDiscountRecord(String str, int num, String unit) {
@@ -15,6 +12,6 @@ public class Discount {
 	}
 
 	public void showDiscountRecord() {
-		System.out.println("名称：" + this.name + "，数量：" + this.number + this.unit);
+		System.out.println("名称：" + this.name + "，免单数量：" + this.number + this.unit);
 	}
 }
