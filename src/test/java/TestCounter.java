@@ -1,6 +1,8 @@
-package testing;
-
 import counter.Receipt;
+import org.junit.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 public class TestCounter {
 
@@ -13,6 +15,15 @@ public class TestCounter {
 		String input = in.replace(testJSON1);
 		in.analyse(input);
 		in.printReceipt();
+	}
+
+
+	@Test
+	public void should_get_correct_price_for_single_item() {
+		String item = "['ITEM000001']";
+		Receipt receipt = new Receipt();
+		boolean result = receipt.analyse(receipt.replace(item));
+		assertThat(result,is(true));
 	}
 
 }
