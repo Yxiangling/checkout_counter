@@ -26,4 +26,11 @@ public class TestCounter {
 		assertThat(result,is(true));
 	}
 
+    @Test
+    public void should_log_in(){
+
+    }
+
+
+
 }

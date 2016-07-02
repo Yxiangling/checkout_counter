@@ -49,7 +49,7 @@ public class Receipt {
 
     private boolean checkFormat(String str, char cPrev, char cNext) {
         if (str.charAt(0) != cPrev || str.charAt(str.length() - 1) != cNext) {
-            System.out.println("输入错误");
+            MyUtils.outPrint("输入错误");
             return false;
         }
         return true;
@@ -72,7 +72,7 @@ public class Receipt {
 
     public void printReceipt() {
 
-        System.out.println("***ThoughtWork超市购物小票***");
+        MyUtils.outPrint("***ThoughtWork超市购物小票***");
         @SuppressWarnings("rawtypes")
         Iterator iter = discountMap.entrySet().iterator();
         while (iter.hasNext()) {
@@ -83,10 +83,12 @@ public class Receipt {
             countPay = g.pay(this.getPayNum(key.toString()));
         }
         System.out.println("-----------------------------");
+
         countPay.showDiscountRecordSet();
-        System.out.println("总计：" + Bill.totalPrice + "(元)");
+        MyUtils.outPrint("总计：" + Bill.totalPrice + "(元)");
+
         if (Bill.totalSavePrice > 0) {
-            System.out.println("节省：" + Bill.totalSavePrice + "(元)");
+            MyUtils.outPrint("节省：" + Bill.totalSavePrice + "(元)");
         }
         System.out.println("*****************************");
     }

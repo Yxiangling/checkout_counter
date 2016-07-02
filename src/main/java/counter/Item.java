@@ -57,19 +57,22 @@ public class Item {
 		String tempPrice = df.format(payPrice);
 
 		if (this.isDiscount) {
-			System.out.print("名称:" + this.itemName + "，单价：" + this.price + "(元)，优惠：" + this.discountName);
+			MyUtils.outPrint("名称:" + this.itemName + "，单价：" + this.price + "(元)，优惠：" + this.discountName);
 		} else {
-			System.out.print("名称:" + this.itemName + "，单价：" + this.price + "(元)");
+			MyUtils.outPrint("名称:" + this.itemName + "，单价：" + this.price + "(元)");
 		}
+
 		if (savePrice == 0) {
-			System.out.println("，数量：" + totalNumber + this.unit + ",小计：" + tempPrice + "(元)");
+			MyUtils.outPrint("，数量：\" + totalNumber + this.unit + \",小计：\" + tempPrice + \"(元)");
 		} else {
 			String strSavePrice = df.format(savePrice);
-			System.out.println("，数量：" + totalNumber + this.unit + ",小计：" + tempPrice + "(元)，小计优惠：" + strSavePrice + "(元)");
+			MyUtils.outPrint("，数量：" + totalNumber + this.unit + ",小计：" + tempPrice + "(元)，小计优惠：" + strSavePrice + "(元)");
 		}
 	}
 
 	public String getBarcode() {
 		return barcode;
 	}
+
+
 }

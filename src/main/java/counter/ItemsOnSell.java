@@ -28,10 +28,9 @@ public class ItemsOnSell {
 	}
 
 	public Item query(String barcode) {
-		Stream<Item> filteredItems = items.stream().filter(item -> item.getBarcode().equals(barcode));
-		if (filteredItems.count() > 0) {
-			return filteredItems.
-		}
+//		Stream<Item> filteredItems = items.stream().filter(item -> item.getBarcode().equals(barcode));
+//		if (filteredItems.count() > 0) {
+//		}
 		return barcodeDetail.get(barcode);
 	}
 }
