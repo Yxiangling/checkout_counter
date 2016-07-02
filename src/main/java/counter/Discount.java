@@ -1,17 +1,17 @@
 package counter;
 
 public class Discount {
-	private String name;
+	private String itemName;
 	private int number;
 	private String unit;
 
-	public void setDiscountRecord(String str, int num, String unit) {
-		this.name = str;
-		this.number = num;
+	public Discount(String itemName, int number, String unit) {
+		this.itemName = itemName;
+		this.number = number;
 		this.unit = unit;
 	}
 
 	public void showDiscountRecord() {
-		System.out.println("名称：" + this.name + "，免单数量：" + this.number + this.unit);
+		System.out.println("名称：" + this.itemName + "，免单数量：" + this.number + this.unit);
 	}
 }

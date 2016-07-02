@@ -1,8 +1,5 @@
 package counter;
 
-import counter.Bill;
-import counter.CommoditySpecies;
-
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -10,9 +7,9 @@ public class Receipt {
 
     public final String SEPARATOR = "-";
 
-    CommoditySpecies gs = new CommoditySpecies();
+    ItemsOnSell commoditySpecies = new ItemsOnSell();
 
-    HashMap<String, Integer> count = new HashMap<String, Integer>();
+    HashMap<String, Integer> discountMap = new HashMap<>();
     Bill countPay = new Bill();
 
     public String replace(String str) {
@@ -28,8 +25,8 @@ public class Receipt {
         str = str.substring(1, str.length() - 1);
         String strArray[] = str.split(",");
 
-        String itemArray[] = null;
-        int payNum = 0;
+        String itemArray[];
+        int payNum;
         for (String item : strArray) {
             if (!this.checkFormat(item, '\'', '\'')) {
                 return false;
@@ -60,15 +57,16 @@ public class Receipt {
 
 
     private void compute(String item, int payNum) {
-        int mCount = 0;
+        int mCount;
 
-        if (count.get(item) != null) {
-            mCount = count.get(item);
+        if (discountMap.get(item) != null) {
+            mCount = discountMap.get(item);
             mCount += payNum;
-            count.put(item, mCount);
+            discountMap.put(item, mCount);
         } else {
-            count.put(item, payNum);
+            discountMap.put(item, payNum);
         }
+
 
     }
 
@@ -76,12 +74,12 @@ public class Receipt {
 
         System.out.println("***ThoughtWork超市购物小票***");
         @SuppressWarnings("rawtypes")
-        Iterator iter = count.entrySet().iterator();
+        Iterator iter = discountMap.entrySet().iterator();
         while (iter.hasNext()) {
             @SuppressWarnings("rawtypes")
             HashMap.Entry entry = (HashMap.Entry) iter.next();
             Object key = entry.getKey();
-            Commodities g = gs.query(key.toString());
+            Item g = commoditySpecies.query(key.toString());
             countPay = g.pay(this.getPayNum(key.toString()));
         }
         System.out.println("-----------------------------");
@@ -94,7 +92,7 @@ public class Receipt {
     }
 
     private int getPayNum(String str) {
-        return count.get(str);
+        return discountMap.get(str);
     }
 
 }

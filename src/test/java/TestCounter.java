@@ -7,7 +7,7 @@ import static org.hamcrest.core.Is.is;
 public class TestCounter {
 
 	public static void main(String[] args) {
-		String testJSON1 = "['ITEM000001'" + "\n" + " , '  ITEM000001','ITEM000001','ITEM000001','ITEM000001','ITEM000001','ITEM000003-3','ITEM000005','ITEM000005','ITEM000005']";
+		String testJSON1 = "['ITEM000001-10'" + "\n" + " , '  ITEM000001','ITEM000001','ITEM000001','ITEM000001','ITEM000001','ITEM000003-3','ITEM000005','ITEM000005','ITEM000005-10']";
 		String testJSON2 = "['ITEM000001','ITEM000001','ITEM000003-3','ITEM000005','ITEM000005']";
 		String testJSON3 = "['ITEM000005-3','ITEM000004-3']";
 
