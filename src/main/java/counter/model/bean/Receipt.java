@@ -1,7 +1,8 @@
-package counter;
+package counter.model.bean;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class Receipt {
 
@@ -16,14 +17,14 @@ public class Receipt {
         return str.replaceAll("\\s*|\t|\r|\n", "");
     }
 
-    public boolean analyse(String str) {
+    public boolean analyse(String json) {
 
-        if (!this.checkFormat(str, '[', ']')) {
+        if (!this.checkFormat(json, '[', ']')) {
             return false;
         }
 
-        str = str.substring(1, str.length() - 1);
-        String strArray[] = str.split(",");
+        json = json.substring(1, json.length() - 1);
+        String strArray[] = json.split(",");
 
         String itemArray[];
         int payNum;
@@ -66,8 +67,6 @@ public class Receipt {
         } else {
             discountMap.put(item, payNum);
         }
-
-
     }
 
     public void printReceipt() {
@@ -77,7 +76,7 @@ public class Receipt {
         Iterator iter = discountMap.entrySet().iterator();
         while (iter.hasNext()) {
             @SuppressWarnings("rawtypes")
-            HashMap.Entry entry = (HashMap.Entry) iter.next();
+            Map.Entry entry = (Map.Entry) iter.next();
             Object key = entry.getKey();
             Item g = commoditySpecies.query(key.toString());
             countPay = g.pay(this.getPayNum(key.toString()));

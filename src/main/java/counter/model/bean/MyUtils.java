@@ -1,4 +1,4 @@
-package counter;
+package counter.model.bean;
 
 /**
  * Created by yxiangling on 2016/7/2.

@@ -1,4 +1,4 @@
-package counter;
+package counter.model.bean;
 
 import java.text.DecimalFormat;
 import java.util.HashSet;
@@ -29,7 +29,9 @@ public class Bill{
     public void showDiscountRecordSet() {
         if (discounts.size() >= 1) {
             System.out.println("买二赠一商品：");
-            discounts.forEach(Discount::showDiscountRecord);
+            for (Discount dr : discounts) {
+                dr.showDiscountRecord();
+            }
             System.out.println("---------------------------");
         }
     }
