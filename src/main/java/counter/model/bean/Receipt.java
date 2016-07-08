@@ -69,6 +69,7 @@ public class Receipt {
         }
     }
 
+
     public void printReceipt() {
 
         MyUtils.outPrint("***ThoughtWork超市购物小票***");
