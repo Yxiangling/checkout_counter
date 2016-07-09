@@ -9,11 +9,11 @@ public class ItemsOnSell {
     List<Item> items = new ArrayList<>();
 
     public ItemsOnSell() {
-        Item g1 = new Item("可口可乐", "瓶", 6.00, true, "ITEM000001");
-        Item g2 = new Item("羽毛球拍", "个", 78.00, true, "ITEM000002");
-        Item g3 = new Item("苹果", "斤", 5.50, true, "ITEM000003");
-        Item g4 = new Item("雪碧", "瓶", 3.00, true, "ITEM000004");
-        Item g5 = new Item("羽毛球", "盒", 12.00, true, "ITEM000005");
+        Item g1 = new Item("可口可乐", "瓶", 6.00, "ITEM000001");
+        Item g2 = new Item("羽毛球拍", "个", 78.00, "ITEM000002");
+        Item g3 = new Item("苹果", "斤", 5.50, "ITEM000003");
+        Item g4 = new Item("雪碧", "瓶", 3.00, "ITEM000004");
+        Item g5 = new Item("羽毛球", "盒", 12.00, "ITEM000005");
 
         items.add(g1);
         items.add(g2);

@@ -72,25 +72,25 @@ public class Receipt {
 
     public void printReceipt() {
 
-        MyUtils.outPrint("***ThoughtWork超市购物小票***");
-        @SuppressWarnings("rawtypes")
-        Iterator iter = discountMap.entrySet().iterator();
-        while (iter.hasNext()) {
-            @SuppressWarnings("rawtypes")
-            Map.Entry entry = (Map.Entry) iter.next();
-            Object key = entry.getKey();
-            Item g = commoditySpecies.query(key.toString());
-            countPay = g.pay(this.getPayNum(key.toString()));
-        }
-        System.out.println("-----------------------------");
-
-        countPay.showDiscountRecordSet();
-        MyUtils.outPrint("总计：" + Bill.totalPrice + "(元)");
-
-        if (Bill.totalSavePrice > 0) {
-            MyUtils.outPrint("节省：" + Bill.totalSavePrice + "(元)");
-        }
-        System.out.println("*****************************");
+//        MyUtils.outPrint("***ThoughtWork超市购物小票***");
+//        @SuppressWarnings("rawtypes")
+//        Iterator iter = discountMap.entrySet().iterator();
+//        while (iter.hasNext()) {
+//            @SuppressWarnings("rawtypes")
+//            Map.Entry entry = (Map.Entry) iter.next();
+//            Object key = entry.getKey();
+//            Item g = commoditySpecies.query(key.toString());
+//            countPay = g.pay(this.getPayNum(key.toString()));
+//        }
+//        System.out.println("-----------------------------");
+//
+//        countPay.showDiscountRecordSet();
+//        MyUtils.outPrint("总计：" + Bill.totalPrice + "(元)");
+//
+//        if (Bill.totalSavePrice > 0) {
+//            MyUtils.outPrint("节省：" + Bill.totalSavePrice + "(元)");
+//        }
+//        System.out.println("*****************************");
     }
 
     private int getPayNum(String str) {
