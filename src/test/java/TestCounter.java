@@ -5,10 +5,10 @@ import counter.presenter.CounterPresenter;
 import counter.presenter.CounterPresenterInterface;
 import counter.view.CounterView;
 import counter.view.CounterViewInterface;
-import org.junit.Test;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+//import org.junit.Test;
+//
+//import static org.hamcrest.MatcherAssert.assertThat;
+//import static org.hamcrest.core.Is.is;
 
 public class TestCounter {
 
@@ -27,14 +27,14 @@ public class TestCounter {
 		counterPresenter.checkOutAndPrintReceipt(receipt);
 	}
 
-
-	@Test
-	public void should_get_correct_price_for_several_items(){
-		String item = "['ITEM000005-3','ITEM000004-3']";
-		Receipt receipt = new Receipt();
-		boolean result = receipt.analyse(receipt.replace(item));
-		assertThat(result,is(true));
-	}
+//
+//	@Test
+//	public void should_get_correct_price_for_several_items(){
+//		String item = "['ITEM000005-3','ITEM000004-3']";
+//		Receipt receipt = new Receipt();
+//		boolean result = receipt.analyse(receipt.replace(item));
+//		assertThat(result,is(true));
+//	}
 
 
 }
