@@ -12,20 +12,21 @@ import counter.view.CounterViewInterface;
 
 public class TestCounter {
 
-	public static void main(String[] args) {
-		String testJSON1 = "['ITEM000001-10'" + "\n" + " , '  ITEM000001','ITEM000001','ITEM000001','ITEM000001','ITEM000001','ITEM000003-3','ITEM000005','ITEM000005','ITEM000005-10']";
-		String testJSON2 = "['ITEM000001','ITEM000001','ITEM000003-3','ITEM000005','ITEM000005']";
-		String testJSON3 = "['ITEM000005-3','ITEM000004-3']";
+    public static void main(String[] args) {
+        String testJSON1 = "['ITEM000001-10'" + "\n" + " , '  ITEM000001','ITEM000001','ITEM000001','ITEM000001','ITEM000001','ITEM000003-3','ITEM000005','ITEM000005','ITEM000005-10']";
+        String testJSON2 = "['ITEM000001','ITEM000001','ITEM000003-3','ITEM000005','ITEM000005']";
+        String testJSON3 = "['ITEM000005-3','ITEM000004-3']";
 
-		CounterModelInterface counterModel = new CounterModel();
-		CounterViewInterface counterView = new CounterView();
-		CounterPresenterInterface counterPresenter
-				= new CounterPresenter(counterModel, counterView);
+        CounterModelInterface counterModel = new CounterModel();
+        CounterViewInterface counterView = new CounterView();
+        CounterPresenterInterface counterPresenter
+                = new CounterPresenter(counterModel, counterView);
 
-		Receipt receipt = new Receipt();
-		counterPresenter.scanItemsInCashierDesk(receipt, testJSON1);
-		counterPresenter.checkOutAndPrintReceipt(receipt);
-	}
+        Receipt receipt = new Receipt();
+
+        counterPresenter.scanItemsInCashierDesk(receipt, testJSON1);
+        counterPresenter.checkOutAndPrintReceipt(receipt);
+    }
 
 //
 //	@Test

@@ -1,8 +1,10 @@
 package counter.model.bean;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.*;
 
 public class Receipt {
 
@@ -12,6 +14,11 @@ public class Receipt {
 
     HashMap<String, Integer> discountMap = new HashMap<>();
     Bill countPay = new Bill();
+    private HashMap<Item, Integer> receiptList;
+
+    public Receipt() {
+        this.receiptList = new HashMap<>();
+    }
 
     public String replace(String str) {
         return str.replaceAll("\\s*|\t|\r|\n", "");
@@ -22,7 +29,6 @@ public class Receipt {
         if (!this.checkFormat(json, '[', ']')) {
             return false;
         }
-
         json = json.substring(1, json.length() - 1);
         String strArray[] = json.split(",");
 
@@ -97,4 +103,30 @@ public class Receipt {
         return discountMap.get(str);
     }
 
+    public void scan(String items) {
+
+        Gson gson = new Gson();
+        List<String> msgJsons = gson.fromJson(items, new TypeToken<List<String>>(){}.getType());
+
+
+        List<BarcodeJson> barcodeJsons = new ArrayList<>();
+
+        for (String msg : msgJsons) {
+            if (msg.contains("-")){
+                String[] tempS = msg.split("-");
+                barcodeJsons.add(new BarcodeJson(tempS[0], Integer.parseInt(msg.split("-")[1])));
+            } else {
+                barcodeJsons.add(new BarcodeJson(msg, 1));
+            }
+        }
+
+        for (BarcodeJson barcode: barcodeJsons) {
+            receiptList.put(commoditySpecies.query(barcode.getBarcode()),
+                    barcode.getNumber());
+        }
+    }
+
+    public HashMap<Item, Integer> getReceiptList() {
+        return receiptList;
+    }
 }
